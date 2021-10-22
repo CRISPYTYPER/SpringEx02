@@ -20,9 +20,9 @@ select * from tbl_board where bno > 0
 				rownum rn, bno, title, content, writer, regdate, updatedate
 			from
 				tbl_board
-			where rownum <= 20
+			where rownum <= #{pageNum} * #{amount}
 			)
-		where rn > 10 
+		where rn > (#{pageNum} - 1) * #{amount}
 	]]>
 </select>
 
